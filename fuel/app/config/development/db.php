@@ -5,10 +5,11 @@
 
 return array(
 	'default' => array(
+		'profiling'   => false,
 		'connection'  => array(
-			'dsn'        => 'mysql:host=localhost;dbname=fuel_dev',
+			'dsn'        => 'mysql:host=localhost;dbname=phpconf2012',
 			'username'   => 'root',
-			'password'   => 'root',
+			'password'   => 'qwe123',
 		),
 	),
 );
