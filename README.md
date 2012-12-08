@@ -1,4 +1,113 @@
-#FuelPHP
+# Programe na Velocidade da Luz - PHP Conference 2012
+
+Esse repositório tem o intuito de mostrar o que foi codificado ao vivo na PHP Conference 2012. Você tem duas formas de aproveitar esse guia:
+
+1. Seguindo o passo a passo e criando utilizando o OIL
+2. Clonando este repositório e instalando
+
+Caso alguem tenha alguma dúvida crie __Issues__ e se você tem alguma ideia que pode ajudar mais alguem, fique a vontade para criar __Pull Requests__.
+
+Se você quiser aprender mais na prática eu sugiro que você estude o repositório __[Fuel Depot](http://github.com/fuel/depot/)__. Esse sistema foi desenvolvido pelo próprio time de desenvolvedores do FuelPHP.
+
+__Façam bom proveito. =)__
+
+## Como criar um blog em 5 minutos
+
+### Instalando FuelPHP
+
+	// INSTALANDO OIL NA MAQUINA
+	curl get.fuelphp.com/oil | sh
+
+	// ENTRANDO NO DIRETÓRIO
+	cd /var/www/
+
+	// CLONANDO FUEL
+	oil create phpconf2012
+
+	// ENTANDO NA PASTA DO PROJETO
+	cd phpconf2012
+
+### Configurando Fuel
+
+	// CONFIGURE O BANCO
+	vim fuel/app/config/development/db.php
+
+	// ADICIONE AUTH E ORM PARA
+	vim fuel/app/config/config.php
+
+	// CONFIGURE SESSÃO PARA USAR DB DRIVER
+	oil g config session
+
+	// CRIANDO TABELA DA SESSÃO NO BANCO
+	php oil r session:create
+
+	// CONFIGURE O SIMPLEAUTH
+	oil g config simpleauth
+	vim fuel/app/config/simpleauth.php
+
+### Brincando com OIL
+
+	// GERANDO ADMIN DE USUÁRIOS
+	oil g admin users group:int username:varchar[50] password:string email:string last_login:int login_hash:string profile_fields:text status:char[1] --skip
+
+	// GERANDO ADMIN DE CATEGORIAS
+	oil g admin categories parent_id:int title:string description:text status:char[1] --skip
+
+	// GERANDO ADMIN DE POSTS
+	oil g admin posts user_id:int category_id:int title:string slug:string summary:text body:text status:char[1] --skip
+
+	// CRIANDO TABELAS NO BANCO
+	oil refine migrate
+
+	// OIL CONSOLE
+	oil console
+
+	// CRIANDO UM USUÁRIO
+	Auth::create_user('admin', 'qwe123', 'contato@dbpolito.net', 100);
+
+	// SAIR DO CONSOLE
+	exit
+
+	// SE TUDO ESTIVER OK, ACESSE A URL
+	http://localhost/phpconf2012/
+
+	// FAÇA O LOGIN E DIVIRTA-SE
+
+No meu repositório, tem algumas alterações para exemplificar como utilizar os relacionamentos do ORM, caso vocês queiram ver isso funcionando, simplesmente copie todo o MVC daqui.
+
+## Instalando a partir deste repositório
+
+	// VÁ PARA A DIRETÓRIO DO PHP
+	cd /var/www/
+
+	// CLONE O REPOSITÓRIO
+	git clone  phpconf2012
+
+	// CONFIGURE O BANCO
+	vim fuel/app/config/development/db.php
+
+	// EXECUTE O OIL PARA INSTALAR O FRAMEWORK
+	php oil r install
+
+	// CRIE A TABELA DE SESSÃO NO BANCO
+	php oil r session:create
+
+	// CRIANDO TABELAS NO BANCO
+	oil refine migrate
+
+	// OIL CONSOLE
+	oil console
+
+	// CRIANDO UM USUÁRIO
+	Auth::create_user('admin', 'qwe123', 'contato@dbpolito.net', 100);
+
+	// SAIR DO CONSOLE
+	exit
+
+	// SE TUDO ESTIVER OK, ACESSE A URL
+	http://localhost/phpconf2012/
+
+# FuelPHP
 
 * Version: 1.4
 * [Website](http://fuelphp.com/)
@@ -9,34 +118,3 @@
 ## Description
 
 FuelPHP is a fast, lightweight PHP 5.3 framework. In an age where frameworks are a dime a dozen, We believe that FuelPHP will stand out in the crowd.  It will do this by combining all the things you love about the great frameworks out there, while getting rid of the bad.
-
-##Development Team
-
-* Harro Verton - Project Manager, Developer ([http://wanwizard.eu/](http://wanwizard.eu/))
-* Jelmer Schreuder - Project Architect, Senior Developer ([http://jelmerschreuder.nl/](http://jelmerschreuder.nl/))
-* Frank de Jonge - Developer ([http://frenky.net/](http://frenky.net/))
-* Phil Sturgeon - Developer ([http://philsturgeon.co.uk](http://philsturgeon.co.uk))
-* Dan Horrigan - Founder, Developer ([http://dhorrigan.com](http://dhorrigan.com))
-
-##Downloading FuelPHP
-
-Since FuelPHP uses Submodules and since GitHub Downloads don't support submodules, do not download FuelPHP using the Downloads link here. Instead, use the [download links location in the docs](http://docs.fuelphp.com/installation/download.html).
-
-##Cloning FuelPHP
-
-FuelPHP uses submodules for things like the **core** folder.  After you clone the repository you will need to init and update the submodules.
-
-Here is the basic usage:
-
-    git clone --recursive git://github.com/fuel/fuel.git
-
-The above command is the same as running:
-
-    git clone git://github.com/fuel/fuel.git
-    cd fuel/
-    git submodule init
-    git submodule update
-
-You can also shorten the last two commands to one:
-
-    git submodule update --init
