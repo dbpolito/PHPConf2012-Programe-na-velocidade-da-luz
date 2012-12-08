@@ -1,4 +1,4 @@
-# Programe na Velocidade da Luz - PHP Conference 2012
+# Programe na Velocidade da Luz - PHP Conference 2012 - __[Link da Palestra](http://joind.in/7742)__
 
 Esse repositório tem o intuito de mostrar o que foi codificado ao vivo na PHP Conference 2012. Você tem duas formas de aproveitar esse guia:
 
