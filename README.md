@@ -9,7 +9,7 @@ Caso alguem tenha alguma dúvida crie __Issues__ e se você tem alguma ideia que
 
 Se você quiser aprender mais na prática eu sugiro que você estude o repositório __[Fuel Depot](http://github.com/fuel/depot/)__. Esse sistema foi desenvolvido pelo próprio time de desenvolvedores do FuelPHP.
 
-__Façam bom proveito. =)__
+__Faça bom proveito. =)__
 
 ## Como criar um blog em 5 minutos
 
@@ -29,20 +29,19 @@ __Façam bom proveito. =)__
 
 ### Configurando Fuel
 
-	// CONFIGURE O BANCO
+	// CONFIGURE O BANCO (veja o arquivo deste repositório)
 	vim fuel/app/config/development/db.php
 
-	// ADICIONE AUTH E ORM PARA
+	// ADICIONE AUTH E ORM PARA (veja o arquivo deste repositório)
 	vim fuel/app/config/config.php
 
-	// CONFIGURE SESSÃO PARA USAR DB DRIVER
-	oil g config session
+	// CONFIGURE SESSÃO PARA USAR DB DRIVER (veja o arquivo deste repositório)
+	vim fuel/app/config/session.php
 
 	// CRIANDO TABELA DA SESSÃO NO BANCO
 	php oil r session:create
 
-	// CONFIGURE O SIMPLEAUTH
-	oil g config simpleauth
+	// CONFIGURE O SIMPLEAUTH (veja o arquivo deste repositório)
 	vim fuel/app/config/simpleauth.php
 
 ### Brincando com OIL
